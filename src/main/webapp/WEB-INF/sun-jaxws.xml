@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
+  <endpoint implementation="com.soapsoft.Service.SVR_CLIENTES" name="SVR_CLIENTES" url-pattern="/SVR_CLIENTES"/>
+</endpoints>
