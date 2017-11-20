@@ -48,7 +48,7 @@ public class SVR_CLIENTES {
             
             TbClientesDaoImpl dao = new TbClientesDaoImpl();
             dao.create(obj);
-            return "Se inserto el cliente";
+            return "Se inserto el cliente...";
         
         } catch (Exception e) {
              throw e;    
