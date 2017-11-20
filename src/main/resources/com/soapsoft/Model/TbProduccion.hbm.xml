@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/11/2017 02:22:16 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.soapsoft.Model.TbProduccion" table="tb_produccion" catalog="soap_soft" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="idDptoProduccion" type="string">
+            <column name="id_dpto_produccion" length="100" not-null="true" />
+        </property>
+        <property name="creadoPor" type="string">
+            <column name="creadoPor" length="50" not-null="true" />
+        </property>
+        <property name="creadoEn" type="timestamp">
+            <column name="creadoEn" length="19" not-null="true" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="observacion" length="200" not-null="true" />
+        </property>
+        <property name="modificadoPor" type="string">
+            <column name="modificadoPor" length="50" />
+        </property>
+        <property name="modificadoEn" type="timestamp">
+            <column name="modificadoEn" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

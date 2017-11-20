@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/11/2017 02:22:16 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.soapsoft.Model.TbOrdenCompra" table="tb_orden_compra" catalog="soap_soft" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tbProveedor" class="com.soapsoft.Model.TbProveedor" fetch="select">
+            <column name="id_proveedor" not-null="true" />
+        </many-to-one>
+        <property name="creadorPor" type="int">
+            <column name="creadorPor" not-null="true" />
+        </property>
+        <property name="creadoEn" type="timestamp">
+            <column name="creadoEn" length="19" not-null="true" />
+        </property>
+        <property name="modificadoPor" type="string">
+            <column name="modificadoPor" length="50" />
+        </property>
+        <property name="modificadoEn" type="timestamp">
+            <column name="modificadoEn" length="19" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="observacion" length="200" />
+        </property>
+        <set name="tbDetalleOrdenCompras" table="tb_detalle_orden_compra" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_orden_compra" not-null="true" />
+            </key>
+            <one-to-many class="com.soapsoft.Model.TbDetalleOrdenCompra" />
+        </set>
+    </class>
+</hibernate-mapping>

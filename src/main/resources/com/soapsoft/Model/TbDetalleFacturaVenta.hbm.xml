@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/11/2017 02:22:16 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.soapsoft.Model.TbDetalleFacturaVenta" table="tb_detalle_factura_venta" catalog="soap_soft" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tbFacturaVenta" class="com.soapsoft.Model.TbFacturaVenta" fetch="select">
+            <column name="id_factura_venta" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tbProductoTerminado" class="com.soapsoft.Model.TbProductoTerminado" fetch="select">
+            <column name="id_producto" not-null="true" />
+        </many-to-one>
+        <property name="cantidad" type="int">
+            <column name="cantidad" not-null="true" />
+        </property>
+        <property name="vlorIva" type="int">
+            <column name="vlor_iva" not-null="true" />
+        </property>
+        <property name="tipoIva" type="string">
+            <column name="tipo_iva" length="10" not-null="true" />
+        </property>
+        <property name="vlorUnitario" type="int">
+            <column name="vlor_unitario" not-null="true" />
+        </property>
+        <property name="vlorTotal" type="int">
+            <column name="vlor_total" not-null="true" />
+        </property>
+        <property name="creadoPor" type="string">
+            <column name="creadoPor" length="50" not-null="true" />
+        </property>
+        <property name="creadoEn" type="timestamp">
+            <column name="creadoEn" length="19" not-null="true" />
+        </property>
+        <property name="modificadoPor" type="string">
+            <column name="modificadoPor" length="50" />
+        </property>
+        <property name="modificadoEn" type="timestamp">
+            <column name="modificadoEn" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

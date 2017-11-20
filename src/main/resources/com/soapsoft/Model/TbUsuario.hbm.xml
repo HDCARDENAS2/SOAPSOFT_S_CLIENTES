@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/11/2017 02:22:16 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.soapsoft.Model.TbUsuario" table="tb_usuario" catalog="soap_soft" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tbRolUsuario" class="com.soapsoft.Model.TbRolUsuario" fetch="select">
+            <column name="id_rol" not-null="true" />
+        </many-to-one>
+        <property name="nombreUsuario" type="string">
+            <column name="nombre_usuario" length="100" not-null="true" />
+        </property>
+        <property name="cedula" type="int">
+            <column name="cedula" not-null="true" />
+        </property>
+        <property name="usuario" type="string">
+            <column name="usuario" length="50" not-null="true" />
+        </property>
+        <property name="contrasena" type="string">
+            <column name="contrasena" length="50" not-null="true" />
+        </property>
+        <property name="estadoUsuario" type="boolean">
+            <column name="estado_usuario" not-null="true" />
+        </property>
+        <property name="creadoPor" type="string">
+            <column name="creadoPor" length="50" not-null="true" />
+        </property>
+        <property name="creadoEn" type="timestamp">
+            <column name="creadoEn" length="19" not-null="true" />
+        </property>
+        <property name="modificadoPor" type="string">
+            <column name="modificadoPor" length="50" not-null="true" />
+        </property>
+        <property name="modificadoEn" type="timestamp">
+            <column name="modificadoEn" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

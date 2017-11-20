@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/11/2017 02:22:16 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.soapsoft.Model.TbRolUsuario" table="tb_rol_usuario" catalog="soap_soft" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="11" not-null="true" />
+        </property>
+        <property name="estadoRol" type="boolean">
+            <column name="estado_rol" not-null="true" />
+        </property>
+        <property name="creadoPor" type="string">
+            <column name="creadoPor" length="50" not-null="true" />
+        </property>
+        <property name="creadoEn" type="timestamp">
+            <column name="creadoEn" length="19" not-null="true" />
+        </property>
+        <property name="modificadoPor" type="string">
+            <column name="modificadoPor" length="50" />
+        </property>
+        <property name="modificadoEn" type="timestamp">
+            <column name="modificadoEn" length="19" />
+        </property>
+        <set name="tbUsuarios" table="tb_usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_rol" not-null="true" />
+            </key>
+            <one-to-many class="com.soapsoft.Model.TbUsuario" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/11/2017 02:22:16 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.soapsoft.Model.TbProductoTerminado" table="tb_producto_terminado" catalog="soap_soft" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tbUbicacion" class="com.soapsoft.Model.TbUbicacion" fetch="select">
+            <column name="id_ubicacion" not-null="true" />
+        </many-to-one>
+        <property name="referencia" type="string">
+            <column name="referencia" length="100" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="100" not-null="true" />
+        </property>
+        <property name="um" type="string">
+            <column name="um" length="10" not-null="true" />
+        </property>
+        <property name="stock" type="int">
+            <column name="stock" not-null="true" />
+        </property>
+        <property name="creadorPor" type="string">
+            <column name="creadorPor" length="50" not-null="true" />
+        </property>
+        <property name="creadoEn" type="timestamp">
+            <column name="creadoEn" length="19" not-null="true" />
+        </property>
+        <property name="modificadoPor" type="string">
+            <column name="modificadoPor" length="50" />
+        </property>
+        <property name="modificadoEn" type="timestamp">
+            <column name="modificadoEn" length="19" />
+        </property>
+        <set name="tbDetalleFacturaVentas" table="tb_detalle_factura_venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_producto" not-null="true" />
+            </key>
+            <one-to-many class="com.soapsoft.Model.TbDetalleFacturaVenta" />
+        </set>
+        <set name="tbDetalleSalidaProdTerms" table="tb_detalle_salida_prod_term" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_producto_terminado" not-null="true" />
+            </key>
+            <one-to-many class="com.soapsoft.Model.TbDetalleSalidaProdTerm" />
+        </set>
+        <set name="tbSalidaMateriaPrimas" table="tb_salida_materia_prima" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_producto_terminado" not-null="true" />
+            </key>
+            <one-to-many class="com.soapsoft.Model.TbSalidaMateriaPrima" />
+        </set>
+        <set name="tbDetalleProduccions" table="tb_detalle_produccion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_producto_terminado" not-null="true" />
+            </key>
+            <one-to-many class="com.soapsoft.Model.TbDetalleProduccion" />
+        </set>
+        <set name="tbDetalleEntradaProdTerms" table="tb_detalle_entrada_prod_term" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_producto_terminado" not-null="true" />
+            </key>
+            <one-to-many class="com.soapsoft.Model.TbDetalleEntradaProdTerm" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/11/2017 02:22:16 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.soapsoft.Model.TbFacturaVenta" table="tb_factura_venta" catalog="soap_soft" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tbClientes" class="com.soapsoft.Model.TbClientes" fetch="select">
+            <column name="id_cliente" not-null="true" />
+        </many-to-one>
+        <property name="observacion" type="string">
+            <column name="observacion" length="200" not-null="true" />
+        </property>
+        <property name="creadoPor" type="string">
+            <column name="creadoPor" length="50" not-null="true" />
+        </property>
+        <property name="creadoEn" type="timestamp">
+            <column name="creadoEn" length="19" not-null="true" />
+        </property>
+        <property name="modificadoPor" type="timestamp">
+            <column name="modificadoPor" length="19" />
+        </property>
+        <property name="modificadoEn" type="timestamp">
+            <column name="modificadoEn" length="19" />
+        </property>
+        <set name="tbDetalleFacturaVentas" table="tb_detalle_factura_venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_factura_venta" not-null="true" />
+            </key>
+            <one-to-many class="com.soapsoft.Model.TbDetalleFacturaVenta" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/11/2017 02:22:16 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.soapsoft.Model.TbSalidaMateriaPrima" table="tb_salida_materia_prima" catalog="soap_soft" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tbProductoTerminado" class="com.soapsoft.Model.TbProductoTerminado" fetch="select">
+            <column name="id_producto_terminado" not-null="true" />
+        </many-to-one>
+        <property name="dptoProducion" type="string">
+            <column name="dpto_producion" length="100" not-null="true" />
+        </property>
+        <property name="creadoPor" type="string">
+            <column name="creadoPor" length="50" not-null="true" />
+        </property>
+        <property name="creadoEn" type="timestamp">
+            <column name="creadoEn" length="19" not-null="true" />
+        </property>
+        <property name="modificadoPor" type="string">
+            <column name="modificadoPor" length="50" />
+        </property>
+        <property name="modificadoEn" type="timestamp">
+            <column name="modificadoEn" length="19" />
+        </property>
+        <set name="tbDetalleSalidaMateriaPrimas" table="tb_detalle_salida_materia_prima" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_salida_materia_prima" not-null="true" />
+            </key>
+            <one-to-many class="com.soapsoft.Model.TbDetalleSalidaMateriaPrima" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -41,5 +41,27 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="soap_soft"/>
+  <table-filter match-name="tb_envio_notificacion_compras"/>
+  <table-filter match-name="tb_usuario"/>
+  <table-filter match-name="tb_entrada_prod_terminado"/>
   <table-filter match-name="tb_clientes"/>
+  <table-filter match-name="tb_producto_terminado"/>
+  <table-filter match-name="tb_ubicacion"/>
+  <table-filter match-name="tb_orden_compra"/>
+  <table-filter match-name="tb_detalle_produccion"/>
+  <table-filter match-name="tb_factura_venta"/>
+  <table-filter match-name="tb_detalle_factura_venta"/>
+  <table-filter match-name="tb_detalle_salida_prod_term"/>
+  <table-filter match-name="tb_notificaciones_almacen"/>
+  <table-filter match-name="tb_salida_materia_prima"/>
+  <table-filter match-name="tb_produccion"/>
+  <table-filter match-name="tb_salida_prod_terminado"/>
+  <table-filter match-name="tb_rol_usuario"/>
+  <table-filter match-name="tb_detalle_entrada_prod_term"/>
+  <table-filter match-name="tb_detalle_orden_compra"/>
+  <table-filter match-name="tb_entrada_materia_prima"/>
+  <table-filter match-name="tb_detalle_entrada_materia_prima"/>
+  <table-filter match-name="tb_detalle_salida_materia_prima"/>
+  <table-filter match-name="tb_materia_prima"/>
+  <table-filter match-name="tb_proveedor"/>
 </hibernate-reverse-engineering>

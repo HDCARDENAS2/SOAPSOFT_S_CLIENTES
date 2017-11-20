@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 20/11/2017 02:22:16 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.soapsoft.Model.TbClientes" table="tb_clientes" catalog="soap_soft" optimistic-lock="version">
+    <class name="com.soapsoft.Model.TbProveedor" table="tb_proveedor" catalog="soap_soft" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="identity" />
@@ -14,20 +14,20 @@
         <property name="razonSocial" type="string">
             <column name="razon_social" length="100" not-null="true" />
         </property>
+        <property name="contacto" type="string">
+            <column name="contacto" length="100" not-null="true" />
+        </property>
         <property name="telefono" type="string">
             <column name="telefono" length="10" not-null="true" />
         </property>
         <property name="celular" type="string">
             <column name="celular" length="10" not-null="true" />
         </property>
-        <property name="contacto" type="int">
-            <column name="contacto" not-null="true" />
+        <property name="direccion" type="string">
+            <column name="direccion" length="100" not-null="true" />
         </property>
         <property name="estado" type="boolean">
             <column name="estado" not-null="true" />
-        </property>
-        <property name="direccion" type="string">
-            <column name="direccion" length="100" not-null="true" />
         </property>
         <property name="creadoPor" type="string">
             <column name="creadoPor" length="50" not-null="true" />
@@ -41,11 +41,11 @@
         <property name="modificadoEn" type="timestamp">
             <column name="modificadoEn" length="19" />
         </property>
-        <set name="tbFacturaVentas" table="tb_factura_venta" inverse="true" lazy="true" fetch="select">
+        <set name="tbOrdenCompras" table="tb_orden_compra" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="id_cliente" not-null="true" />
+                <column name="id_proveedor" not-null="true" />
             </key>
-            <one-to-many class="com.soapsoft.Model.TbFacturaVenta" />
+            <one-to-many class="com.soapsoft.Model.TbOrdenCompra" />
         </set>
     </class>
 </hibernate-mapping>
