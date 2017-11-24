@@ -25,7 +25,7 @@ import javax.persistence.TemporalType;
 public class TbDetalleFacturaVenta  implements java.io.Serializable {
 
 
-     private Integer id;
+     private int id;
      private TbFacturaVenta tbFacturaVenta;
      private TbProductoTerminado tbProductoTerminado;
      private int cantidad;
@@ -53,7 +53,20 @@ public class TbDetalleFacturaVenta  implements java.io.Serializable {
         this.creadoPor = creadoPor;
         this.creadoEn = creadoEn;
     }
-    public TbDetalleFacturaVenta(TbFacturaVenta tbFacturaVenta, TbProductoTerminado tbProductoTerminado, int cantidad, int vlorIva, String tipoIva, int vlorUnitario, int vlorTotal, String creadoPor, Date creadoEn, String modificadoPor, Date modificadoEn) {
+
+    /**
+     *
+     * @param tbFacturaVenta
+     * @param tbProductoTerminado
+     * @param cantidad
+     * @param vlorIva
+     * @param tipoIva
+     * @param vlorUnitario
+     * @param vlorTotal
+     * @param creadoPor
+     * @param creadoEn
+     */
+    public TbDetalleFacturaVenta(TbFacturaVenta tbFacturaVenta, TbProductoTerminado tbProductoTerminado, int cantidad, int vlorIva, String tipoIva, int vlorUnitario, int vlorTotal, String creadoPor, Date creadoEn, String modificadoPor, Date modificadoEn){
        this.tbFacturaVenta = tbFacturaVenta;
        this.tbProductoTerminado = tbProductoTerminado;
        this.cantidad = cantidad;
@@ -65,17 +78,20 @@ public class TbDetalleFacturaVenta  implements java.io.Serializable {
        this.creadoEn = creadoEn;
        this.modificadoPor = modificadoPor;
        this.modificadoEn = modificadoEn;
+       
     }
+
+   
    
      @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="ID", unique=true, nullable=false)
-    public Integer getId() {
+    public int getId() {
         return this.id;
     }
     
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

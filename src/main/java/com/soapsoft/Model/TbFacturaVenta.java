@@ -33,7 +33,7 @@ public class TbFacturaVenta  implements java.io.Serializable {
      private String observacion;
      private String creadoPor;
      private Date creadoEn;
-     private Date modificadoPor;
+     private String modificadoPor;
      private Date modificadoEn;
      private Set tbDetalleFacturaVentas = new HashSet(0);
 
@@ -41,13 +41,13 @@ public class TbFacturaVenta  implements java.io.Serializable {
     }
 
 	
-    public TbFacturaVenta(TbClientes tbClientes, String observacion, String creadoPor, Date creadoEn) {
+    public TbFacturaVenta(String observacion, TbClientes tbClientes, String creadoPor, Date creadoEn) {
         this.tbClientes = tbClientes;
         this.observacion = observacion;
         this.creadoPor = creadoPor;
         this.creadoEn = creadoEn;
     }
-    public TbFacturaVenta(TbClientes tbClientes, String observacion, String creadoPor, Date creadoEn, Date modificadoPor, Date modificadoEn, Set tbDetalleFacturaVentas) {
+    public TbFacturaVenta(TbClientes tbClientes, String observacion, String creadoPor, Date creadoEn, String modificadoPor, Date modificadoEn, Set tbDetalleFacturaVentas) {
        this.tbClientes = tbClientes;
        this.observacion = observacion;
        this.creadoPor = creadoPor;
@@ -111,11 +111,11 @@ public class TbFacturaVenta  implements java.io.Serializable {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="modificadoPor", length=19)
-    public Date getModificadoPor() {
+    public String getModificadoPor() {
         return this.modificadoPor;
     }
     
-    public void setModificadoPor(Date modificadoPor) {
+    public void setModificadoPor(String modificadoPor) {
         this.modificadoPor = modificadoPor;
     }
 
