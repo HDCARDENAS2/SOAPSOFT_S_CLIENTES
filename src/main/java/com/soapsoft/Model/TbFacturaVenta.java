@@ -1,5 +1,5 @@
 package com.soapsoft.Model;
-// Generated 20/11/2017 02:22:15 PM by Hibernate Tools 4.3.1
+// Generated 25/11/2017 12:07:14 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -41,7 +41,7 @@ public class TbFacturaVenta  implements java.io.Serializable {
     }
 
 	
-    public TbFacturaVenta(String observacion, TbClientes tbClientes, String creadoPor, Date creadoEn) {
+    public TbFacturaVenta(TbClientes tbClientes, String observacion, String creadoPor, Date creadoEn) {
         this.tbClientes = tbClientes;
         this.observacion = observacion;
         this.creadoPor = creadoPor;
@@ -109,8 +109,8 @@ public class TbFacturaVenta  implements java.io.Serializable {
         this.creadoEn = creadoEn;
     }
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="modificadoPor", length=19)
+    
+    @Column(name="modificadoPor", length=100)
     public String getModificadoPor() {
         return this.modificadoPor;
     }

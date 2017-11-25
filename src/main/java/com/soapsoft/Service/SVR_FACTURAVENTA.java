@@ -36,7 +36,7 @@ public class SVR_FACTURAVENTA {
         TbClientes tbClientes = new TbClientes();
         tbClientes.setId(id_cliente);
         
-        TbFacturaVenta objFacturaVenta = new TbFacturaVenta(observacion, tbClientes, creadoPor, new Date());
+        TbFacturaVenta objFacturaVenta = new TbFacturaVenta(tbClientes,observacion,creadoPor, new Date());
         
         try {
             TbFacturaVentaDaoImpl daoFacturaVenta = new TbFacturaVentaDaoImpl();

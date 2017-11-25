@@ -49,8 +49,20 @@ public class SRV_DETALLEFACTURAVENTA {
      */
     @WebMethod(operationName = "fn_borrar_detalle_factura")
     public String fn_borrar_detalle_factura(@WebParam(name = "ID") int ID) {
-        //TODO write your implementation code here:
-        return null;
+       try {
+            TbDetalleFacturaVentaDaoImpl daoDetalleFacturaVentaDaoImpl = new TbDetalleFacturaVentaDaoImpl();
+            TbDetalleFacturaVenta objFacturaVenta = daoDetalleFacturaVentaDaoImpl.findById(ID);
+            
+            if(objFacturaVenta != null){
+                daoDetalleFacturaVentaDaoImpl.delete(objFacturaVenta);
+            }else{
+                return "El Detalle factura no Existe";
+            }
+            return "Se eliminoel Detalle factura";
+            
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     /**

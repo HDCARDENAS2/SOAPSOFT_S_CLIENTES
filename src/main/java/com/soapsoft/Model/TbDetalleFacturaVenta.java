@@ -1,5 +1,5 @@
 package com.soapsoft.Model;
-// Generated 20/11/2017 02:22:15 PM by Hibernate Tools 4.3.1
+// Generated 25/11/2017 12:07:14 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -25,7 +25,7 @@ import javax.persistence.TemporalType;
 public class TbDetalleFacturaVenta  implements java.io.Serializable {
 
 
-     private int id;
+     private Integer id;
      private TbFacturaVenta tbFacturaVenta;
      private TbProductoTerminado tbProductoTerminado;
      private int cantidad;
@@ -53,20 +53,7 @@ public class TbDetalleFacturaVenta  implements java.io.Serializable {
         this.creadoPor = creadoPor;
         this.creadoEn = creadoEn;
     }
-
-    /**
-     *
-     * @param tbFacturaVenta
-     * @param tbProductoTerminado
-     * @param cantidad
-     * @param vlorIva
-     * @param tipoIva
-     * @param vlorUnitario
-     * @param vlorTotal
-     * @param creadoPor
-     * @param creadoEn
-     */
-    public TbDetalleFacturaVenta(TbFacturaVenta tbFacturaVenta, TbProductoTerminado tbProductoTerminado, int cantidad, int vlorIva, String tipoIva, int vlorUnitario, int vlorTotal, String creadoPor, Date creadoEn, String modificadoPor, Date modificadoEn){
+    public TbDetalleFacturaVenta(TbFacturaVenta tbFacturaVenta, TbProductoTerminado tbProductoTerminado, int cantidad, int vlorIva, String tipoIva, int vlorUnitario, int vlorTotal, String creadoPor, Date creadoEn, String modificadoPor, Date modificadoEn) {
        this.tbFacturaVenta = tbFacturaVenta;
        this.tbProductoTerminado = tbProductoTerminado;
        this.cantidad = cantidad;
@@ -78,20 +65,17 @@ public class TbDetalleFacturaVenta  implements java.io.Serializable {
        this.creadoEn = creadoEn;
        this.modificadoPor = modificadoPor;
        this.modificadoEn = modificadoEn;
-       
     }
-
-   
    
      @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="ID", unique=true, nullable=false)
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
