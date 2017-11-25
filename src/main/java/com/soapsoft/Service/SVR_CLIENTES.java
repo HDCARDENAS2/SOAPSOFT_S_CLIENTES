@@ -8,6 +8,7 @@ package com.soapsoft.Service;
 import com.soapsoft.Dao.TbClientesDaoImpl;
 import com.soapsoft.Model.TbClientes;
 import java.util.Date;
+import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -141,8 +142,22 @@ public class SVR_CLIENTES {
         
     }
 
-    
-    
-    
- 
+    /**
+     * Web service operation
+     * @param ID
+     * @return 
+     */
+    @WebMethod(operationName = "consultar_cliente")
+    public TbClientes consultar_cliente(@WebParam(name = "ID") int ID) {
+        
+          TbClientesDaoImpl dao = new TbClientesDaoImpl();
+           List<TbClientes>  obj = dao.fn_consultar_nit(ID);
+
+            if(!obj.isEmpty() ){
+                return obj.get(0);
+            }
+             return  null;    
+    }
+
+   
 }

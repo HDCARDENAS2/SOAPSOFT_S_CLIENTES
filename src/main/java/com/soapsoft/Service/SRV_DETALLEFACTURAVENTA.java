@@ -26,7 +26,7 @@ public class SRV_DETALLEFACTURAVENTA {
      * Web service operation
      */
     @WebMethod(operationName = "fn_insertar_detalle_factura_venta")
-    public String fn_insertar_detalle_factura_venta(@WebParam(name = "id_factura_venta") int id_factura_venta, @WebParam(name = "id_producto") int id_producto, @WebParam(name = "cantidad") int cantidad, @WebParam(name = "vlor_iva") int vlor_iva, @WebParam(name = "tipo_iva") String tipo_iva, @WebParam(name = "vlor_unitario") int vlor_unitario, @WebParam(name = "vlor_total") int vlor_total, @WebParam(name = "creadoPor") String creadoPor) {
+    public int fn_insertar_detalle_factura_venta(@WebParam(name = "id_factura_venta") int id_factura_venta, @WebParam(name = "id_producto") int id_producto, @WebParam(name = "cantidad") int cantidad, @WebParam(name = "vlor_iva") int vlor_iva, @WebParam(name = "tipo_iva") String tipo_iva, @WebParam(name = "vlor_unitario") int vlor_unitario, @WebParam(name = "vlor_total") int vlor_total, @WebParam(name = "creadoPor") String creadoPor) {
         TbFacturaVenta tbFacturaVenta = new TbFacturaVenta();
         tbFacturaVenta.setId(id_factura_venta);
         
@@ -37,8 +37,8 @@ public class SRV_DETALLEFACTURAVENTA {
         
         try {
             TbDetalleFacturaVentaDaoImpl daoDetalleFacturaVenta = new TbDetalleFacturaVentaDaoImpl();
-            daoDetalleFacturaVenta.create(objDetalleFacturaVenta);
-            return "se creo el Detalle de la Factura";
+            int id = daoDetalleFacturaVenta.create(objDetalleFacturaVenta);
+           return id;
         } catch (Exception e) {
             throw e;
         }

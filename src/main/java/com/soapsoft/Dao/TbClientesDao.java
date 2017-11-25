@@ -6,11 +6,12 @@
 package com.soapsoft.Dao;
 
 import com.soapsoft.Model.TbClientes;
+import java.util.List;
 
 /**
  *
  * @author PC
  */
 public interface TbClientesDao extends GenericDao<TbClientes, Integer>{
-    
+           public List<TbClientes>  fn_consultar_nit(int nit);
 }

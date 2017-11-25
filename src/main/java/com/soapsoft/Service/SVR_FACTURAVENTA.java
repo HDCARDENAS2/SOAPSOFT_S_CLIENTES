@@ -31,7 +31,7 @@ public class SVR_FACTURAVENTA {
      */
     
     @WebMethod(operationName = "fn_insertar_factura_venta")
-    public String fn_insertar_factura_venta(@WebParam(name = "observacion") String observacion, @WebParam(name = "id_cliente") int id_cliente, @WebParam(name = "creadoPor") String creadoPor) {
+    public int fn_insertar_factura_venta(@WebParam(name = "observacion") String observacion, @WebParam(name = "id_cliente") int id_cliente, @WebParam(name = "creadoPor") String creadoPor) {
         
         TbClientes tbClientes = new TbClientes();
         tbClientes.setId(id_cliente);
@@ -40,13 +40,12 @@ public class SVR_FACTURAVENTA {
         
         try {
             TbFacturaVentaDaoImpl daoFacturaVenta = new TbFacturaVentaDaoImpl();
-            daoFacturaVenta.create(objFacturaVenta);
-            return "Se inserto la factura de la venta";
+            int id  = daoFacturaVenta.create(objFacturaVenta);
+            return id;
         } catch (Exception e) {
             throw e;
         }
-        
-        
+       
     }
 
     /**

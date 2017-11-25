@@ -6,6 +6,10 @@
 package com.soapsoft.Dao;
 
 import com.soapsoft.Model.TbClientes;
+import com.soapsoft.Util.LlaveValor;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  *
@@ -13,4 +17,25 @@ import com.soapsoft.Model.TbClientes;
  */
 public class TbClientesDaoImpl extends GenericDaoImpl<TbClientes, Integer> implements TbClientesDao{
     
+       public List<TbClientes>  fn_consultar_nit(int nit){
+           
+           
+            List<TbClientes> resultado = null;
+
+            try{ 
+
+                String query = "SELECT Id, razon_social as RazonSocial  FROM tb_clientes WHERE nit = :p_nit  ";
+
+                ArrayList<LlaveValor> parametros = new ArrayList<>();
+                parametros.add(new LlaveValor("p_nit", nit));
+
+                resultado = this.Query(query, parametros,TbClientes.class);
+
+                } catch (Exception e) {
+                    throw e;
+                }
+
+            return resultado;
+          
+       }
 }
