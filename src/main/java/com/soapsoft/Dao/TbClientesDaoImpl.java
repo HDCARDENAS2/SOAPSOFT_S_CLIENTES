@@ -38,4 +38,26 @@ public class TbClientesDaoImpl extends GenericDaoImpl<TbClientes, Integer> imple
             return resultado;
           
        }
+       
+       public List<TbClientes>  fn_consultar_todos_clie(){
+          
+            List<TbClientes> resultado = null;
+
+            try{ 
+
+                String query = "SELECT Id, nit as Nit, razon_social as RazonSocial,telefono as Telefono, celular as Celular,direccion as Direccion  FROM  tb_clientes ORDER BY RazonSocial asc";
+
+                ArrayList<LlaveValor> parametros = new ArrayList<>();
+
+                resultado = this.Query(query, parametros,TbClientes.class);
+
+                } catch (Exception e) {
+                    throw e;
+                }
+
+            return resultado;
+          
+       }
+    
 }
+

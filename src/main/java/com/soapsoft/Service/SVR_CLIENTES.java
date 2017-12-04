@@ -104,8 +104,6 @@ public class SVR_CLIENTES {
                                @WebParam(name = "razon_social") String razon_social, 
                                @WebParam(name = "telefono") String telefono, 
                                @WebParam(name = "celular") String celular, 
-                               @WebParam(name = "contacto") int contacto, 
-                               @WebParam(name = "estado") boolean estado, 
                                @WebParam(name = "direccion") String direccion, 
                                @WebParam(name = "modificadoPor") String modificadoPor
                                ) {
@@ -122,8 +120,6 @@ public class SVR_CLIENTES {
                 obj_modificar.setRazonSocial(razon_social);
                 obj_modificar.setTelefono(telefono);
                 obj_modificar.setCelular(celular);
-                obj_modificar.setContacto(contacto);
-                obj_modificar.setEstado(estado);
                 obj_modificar.setDireccion(direccion);
                 obj_modificar.setModificadoPor(modificadoPor);
                 obj_modificar.setModificadoEn(new Date());
@@ -153,11 +149,18 @@ public class SVR_CLIENTES {
           TbClientesDaoImpl dao = new TbClientesDaoImpl();
            List<TbClientes>  obj = dao.fn_consultar_nit(ID);
 
+           
+          
             if(!obj.isEmpty() ){
                 return obj.get(0);
             }
              return  null;    
     }
 
-   
+   @WebMethod(operationName = "consultar_todos_clientes")
+    public List<TbClientes> consultar_todos_clientes() {
+          TbClientesDaoImpl dao=new TbClientesDaoImpl();  
+        
+         return dao.fn_consultar_todos_clie();
+    }
 }
